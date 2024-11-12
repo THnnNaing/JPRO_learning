@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table Exercises</title>
+  </head>
+  <body>
+    <h1>Simple Table</h1>
+    <table border="1" width="25%" cellspacing="2" cellpadding="5" bgcolor="#e2ebf0">
+        <caption align="bottom"><span>Table 1.</span> This is Simple Table</caption>
+      <tr bgcolor="#74cbfa">
+        <th>Heading 1</th>
+        <th>Heading 2</th>
+        <th>Heading 3</th>
+        <th>Heading 4</th>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>B</td>
+        <td>C</td>
+        <td>D</td>
+      </tr>
+      <tr>
+        <td>E</td>
+        <td>F</td>
+        <td>G</td>
+        <td>H</td>
+      </tr>
+      <tr>
+        <td>I</td>
+        <td>J</td>
+        <td>K</td>
+        <td>L</td>
+      </tr>
+      <tr>
+        <td>M</td>
+        <td>N</td>
+        <td>O</td>
+        <td>P</td>
+      </tr>
+      <tr>
+        <td>Q</td>
+        <td>R</td>
+        <td>S</td>
+        <td>T</td>
+      </tr>
+      <tr>
+        <td>U</td>
+        <td>V</td>
+        <td>W</td>
+        <td>X</td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">Y</td>
+        <td colspan="2" align="center">Z</td>
+      </tr>
+      
+    </table>
+    
+    <h1>Merge The Column Data within One Row</h1>
+    <table border="1" cellspacing="0" cellpadding="5" width="40%">
+        <thead bgcolor="#74cbfa">
+            <tr>
+                <th colspan="4">Class : A, Student Data</th>
+            </tr>
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Phone No</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1. </td>
+                <td>Thi Han</td>
+                <td>18</td>
+                <td>09799669265</td>
+            </tr>
+            <tr>
+                <td>1. </td>
+                <td>Thi Han</td>
+                <td>18</td>
+                <td>09799669265</td>
+            </tr>
+        </tbody>
+        <tfoot bgcolor="#74cbfa">
+            <tr>
+                <td colspan="3">No. of student</td>
+                <td>2</td>
+            </tr>
+        </tfoot>
+    </table>
+    <h1>Merge the Row Data</h1>
+    <table border="1" cellspacing="0" cellpadding="5" width="40%">
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Players</th>
+                <th colspan="2">Statistic</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">Team A</td>
+                <td>Player : 1</td>
+                <td>Goals : 4</td>
+                <td>Assists : 7</td>
+            </tr>
+            <tr>
+                <td>Player : 2</td>
+                <td>Goals : 6</td>
+                <td>Assists : 5</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Team B</td>
+                <td>Player : 3</td>
+                <td>Goals : 5</td>
+                <td>Assists : 6</td>
+            </tr>
+            <tr>
+                <td>Player : 4</td>
+                <td>Goals : 3</td>
+                <td>Assists : 8</td>
+            </tr>
+        </tbody>
+    </table>
+  </body>
+</html>
