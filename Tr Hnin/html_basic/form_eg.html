@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <label for="">Name : </label>
+      <input type="text" size="30" maxlength="3" /><br />
+
+      <label for="">Age : </label>
+      <input type="number" size="30" min="15" max="35" /><br />
+
+      <label for="">Email : </label>
+      <input type="email" placeholder="thihan1@gmail.com" /><br />
+
+      <label for="">Password : </label>
+      <input type="password" /><br />
+
+      <label for="">Gender : </label>
+      <input type="radio" /> Male <input type="radio" /> Female <br />
+
+      <label for="">DOB : </label>
+      <input type="date" max="2015-12-31" /><br />
+
+      <label for="">Time : </label>
+      <input type="time" /><br />
+
+      <label for="">Age Range</label>
+      <input type="range" min="15" max="35" value="25" /><br />
+
+      <label for="">Color : </label>
+      <input type="color" /><br />
+
+      <label for="">Language Preferred : </label>
+      <input type="checkbox" /> Japanese <br />
+      <input type="checkbox" /> Ching Chong <br />
+      <input type="checkbox" /> English <br />
+      <input type="checkbox" /> Burmese <br />
+
+      <label for="">Divison/State : </label>
+      <select name="" id="" size="3" multiple>
+        <optgroup label="Division">
+          <option value="">Yangon</option>
+          <option value="">Manadalay</option>
+          <option value="">Magway</option>
+        </optgroup>
+        <optgroup label="State">
+          <option value="">Shan</option>
+          <option value="">Chin</option>
+          <option value="">Kayin</option>
+        </optgroup></select
+      ><br />
+
+      <label for="">Batch No. </label>
+      <input type="text" list="blist" /> <br>
+
+      <label for="">Browser : </label>
+      <input type="text" list="blist" />
+      <datalist id="blist">
+        <option value="Firefox">Firefox</option>
+        <option value="Chrome">Chrome</option>
+        <option value="Edge">Edge</option>
+        <option value="Opera">Opera</option>
+      </datalist> <br>
+
+      <fieldset>
+        <legend>Education Background...</legend>
+        <input type="radio" name="edubg"> Undergraduate <br>
+        <input type="radio" name="edubg"> Graduate <br>
+        <input type="radio" name="edubg"> PostGraduate <br>
+      </fieldset>
+
+      <label for="">Select Your Location : </label>
+      <input type="file"><br>
+      <label for="">Telephone No. : </label>
+      <input type="tel" pattern="^(09|+959)[0-9]{9}$"><br>
+
+      <input type="submit" value="send" />
+      <input type="reset" value="clear" />
+      <input type="button" value="button" />
+    </form>
+  </body>
+</html>
