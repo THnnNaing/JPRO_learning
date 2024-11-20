@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        font-size: 30px;
+        font-weight: 500;
+      }
+      .bggreen {
+        background-color: green;
+      }
+      .white {
+        color: white;
+      }
+      .a,
+      .a td,
+      .a tr {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      .a {
+        width: 40%;
+      }
+      .a td:nth-child(even) {
+        background-color: rgb(146, 186, 255);
+      }
+      .a td:nth-child(odd) {
+        background-color: rgb(206, 206, 206);
+      }
+      #pink {
+        color: rgb(255, 74, 216);
+      }
+      .bgpink {
+        background-color: rgb(255, 74, 216);
+      }
+      .bgblue {
+        background-color: blue;
+      }
+      .b td,
+      .b th {
+        border: 1px solid red;
+      }
+      .b {
+        border-collapse: collapse;
+        height: 35vh;
+        text-align: center;
+        width: 60%;
+      }
+      .b tr td:hover {
+        background-color: green;
+      }
+      .b td:nth-child(2) {
+        background-color: rgb(230, 230, 230);
+      }
+      .b td:nth-child(3) {
+        background-color: rgb(154, 215, 247);
+      }
+      .b td:nth-child(4) {
+        background-color: rgb(69, 176, 252);
+      }
+      .c {
+        border-collapse: collapse;
+        height: 30vh;
+        text-align: center;
+        width: 60%;
+      }
+      .c th {
+        background-color: green;
+        color: white;
+      }
+      .c th,
+      .c td {
+        border-bottom: 2px solid black;
+      }
+      .d tr:nth-child(odd) {
+        background-color: rgb(222, 222, 222);
+      }
+      .c tr:hover {
+        background-color: rgb(167, 167, 167);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Exercise 1-Simple Table</h1>
+    <table class="a">
+      <tr>
+        <th class="bggreen white" colspan="5">Student Mask Sheet</th>
+      </tr>
+      <tr>
+        <td>Math</td>
+        <td>Science</td>
+        <td>English</td>
+        <td>Physics</td>
+        <td>General Knowledge</td>
+      </tr>
+      <tr>
+        <td>85</td>
+        <td>87</td>
+        <td>87</td>
+        <td>87</td>
+        <td>87</td>
+      </tr>
+      <tr>
+        <td>85</td>
+        <td>87</td>
+        <td>87</td>
+        <td>87</td>
+        <td>87</td>
+      </tr>
+      <tr>
+        <td>85</td>
+        <td>87</td>
+        <td>87</td>
+        <td>87</td>
+        <td>87</td>
+      </tr>
+      <tr>
+        <td>85</td>
+        <td>87</td>
+        <td>87</td>
+        <td>87</td>
+        <td>87</td>
+      </tr>
+      <tr>
+        <td>85</td>
+        <td>87</td>
+        <td>87</td>
+        <td>87</td>
+        <td>87</td>
+      </tr>
+    </table>
+
+    <h1 id="pink">Most Successful vs All vs. Least Successful</h1>
+    <table class="b">
+      <tr>
+        <th style="border: 0px solid white"></th>
+        <th class="white bgpink">Most Successful</th>
+        <th class="white bggreen">All Respondents</th>
+        <th class="white bgblue">Least Successful</th>
+      </tr>
+      <tr>
+        <td>Create board awareness</td>
+        <td>88%</td>
+        <td>80%</td>
+        <td>63%</td>
+      </tr>
+      <tr>
+        <td>Build credility/ trust</td>
+        <td>88%</td>
+        <td>80%</td>
+        <td>63%</td>
+      </tr>
+      <tr>
+        <td>Edicate auidences(s)</td>
+        <td>88%</td>
+        <td>80%</td>
+        <td>63%</td>
+      </tr>
+      <tr>
+        <td>Build loyality with existing clients/ customers</td>
+        <td>88%</td>
+        <td>80%</td>
+        <td>63%</td>
+      </tr>
+      <tr>
+        <td>Generate demand/ leads</td>
+        <td>88%</td>
+        <td>80%</td>
+        <td>63%</td>
+      </tr>
+    </table>
+
+    <h1>Hover Table with border-bottm</h1>
+    <table class="c">
+      <caption>
+        Student Data
+      </caption>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Savings</th>
+      </tr>
+      <tr>
+        <td>Peter</td>
+        <td>Griffin</td>
+        <td>$100</td>
+      </tr>
+      <tr>
+        <td>Louis</td>
+        <td>Griffin</td>
+        <td>$150</td>
+      </tr>
+      <tr>
+        <td>Joe</td>
+        <td>Swanson</td>
+        <td>$300</td>
+      </tr>
+    </table>
+
+    <h1>Hover Table with even row background</h1>
+    <table class="c d">
+      <caption>
+        Student Data
+      </caption>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Savings</th>
+      </tr>
+      <tr>
+        <td>Peter</td>
+        <td>Griffin</td>
+        <td>$100</td>
+      </tr>
+      <tr>
+        <td>Louis</td>
+        <td>Griffin</td>
+        <td>$150</td>
+      </tr>
+      <tr>
+        <td>Joe</td>
+        <td>Swanson</td>
+        <td>$300</td>
+      </tr>
+    </table>
+  </body>
+</html>

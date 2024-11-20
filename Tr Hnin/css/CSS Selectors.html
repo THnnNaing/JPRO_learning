@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Selector</title>
+    <style>
+      h1 {
+        text-align: center;
+        color: rgb(0, 0, 0);
+        text-shadow: 2px 3px 4px rgb(153, 153, 153);
+        font-size: 40px;
+      }
+      .hstyle {
+        text-decoration: underline 2px solid red;
+        font-size: 30px;
+      }
+      #hs {
+        font-size: 30px;
+        font-style: italic;
+        font-weight: bold;
+      }
+      li {
+      }
+      ul li {
+      }
+      .nlink li a {
+        text-decoration: none;
+        color: black;
+      }
+      .iform label {
+        color: green;
+      }
+      .iform input {
+        width: 40%;
+      }
+      .iform input[type="submit"],
+      .iform input[type="reset"] {
+        background-color: brown;
+        color: white;
+        width: 100px;
+        padding: 10px;
+      }
+      .tstyle {
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid black;
+        border-collapse: collapse;
+      }
+      .tstyle th,
+      .tstyle td {
+        border: 1px solid green;
+        padding: 20px;
+        font-size: 20px;
+        vertical-align: center;
+      }
+      .rcolor tr:nth-child(even) {
+        background-color: violet;
+      }
+      .ccolor td:nth-child(1) {
+        background-color: blue;
+      }
+      .ccolor td:nth-child(3) {
+        background-color: green;
+      }
+      .rcolor td:hover{
+        text-shadow: 2px 2px 4px black;
+      }
+      .ccolor tr:hover{
+        text-shadow: 4px 4px 4px red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Using CSS Select</h1>
+    <h2 class="hstyle" id="hs">Using Class</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ullam
+      natus nemo dicta aperiam. Expedita molestiae soluta maiores totam et a
+      illum sequi culpa quis veniam eligendi, quidem deleniti incidunt!
+    </p>
+    <h2 class="hstyle">Using Class</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ullam
+      natus nemo dicta aperiam. Expedita molestiae soluta maiores totam et a
+      illum sequi culpa quis veniam eligendi, quidem deleniti incidunt!
+    </p>
+    <h2 class="hstyle">Using Class</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ullam
+      natus nemo dicta aperiam. Expedita molestiae soluta maiores totam et a
+      illum sequi culpa quis veniam eligendi, quidem deleniti incidunt!
+    </p>
+
+    <ul type="square">
+      <li>Apple</li>
+      <li>Banana</li>
+      <li>Orange</li>
+    </ul>
+    <ul>
+      <li>Apple</li>
+      <li>Banana</li>
+      <li>Orange</li>
+    </ul>
+    <ul class="nlink" type="circle">
+      <li><a href="#">Apple</a></li>
+      <li><a href="#">Banana</a></li>
+      <li><a href="#">Orange</a></li>
+      <li><a href="#">Lime</a></li>
+    </ul>
+
+    <form action="" class="iform">
+      <label for="">Name</label>
+      <input type="text" placeholder="Thi Han" /><br />
+      <label for="">Password</label>
+      <input type="text" placeholder="Thi Han" /><br />
+      <input type="submit" value="Login" />
+      <input type="reset" value="Cancel" />
+    </form>
+
+    <table class="tstyle rcolor">
+      <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+        <th>Column 3</th>
+      </tr>
+      <tr>
+        <td>ABC</td>
+        <td>DEF</td>
+        <td>GHI</td>
+      </tr>
+      <tr>
+        <td>ABC</td>
+        <td>DEF</td>
+        <td>GHI</td>
+      </tr>
+    </table>
+    <table class="tstyle ccolor">
+        <tr>
+          <th>Column 1</th>
+          <th>Column 2</th>
+          <th>Column 3</th>
+        </tr>
+        <tr>
+          <td>ABC</td>
+          <td>DEF</td>
+          <td>GHI</td>
+        </tr>
+        <tr>
+          <td>ABC</td>
+          <td>DEF</td>
+          <td>GHI</td>
+        </tr>
+      </table>
+  </body>
+</html>
