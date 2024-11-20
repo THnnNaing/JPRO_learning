@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pure Form Setting</title>
+  </head>
+  <body>
+    <h1>Pure Form Setting</h1>
+    <table width="100%" cellspacing="2" cellpadding="5">
+      <form action="">
+        <tr>
+          <td align="right"><label for="fastname">Fast Name : </label></td>
+          <td><input type="text" /></td>
+        </tr>
+
+        <tr>
+          <td align="right">
+            <label for="lastname">Last Name : </label>
+          </td>
+          <td>
+            <input type="text" />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <label for="">Enter Password : </label>
+          </td>
+          <td>
+            <input type="password" />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <label for="">Enter Phone No. </label>
+          </td>
+          <td>
+            <input
+              type="tel"
+              pattern="^(09|+959)[0-9]{9}$"
+              placeholder="09-7#######"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <label for="">Date Of Birth</label>
+          </td>
+          <td>
+            <input type="date" max="2020-12-31" />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <label for="">Import Your CV Form : </label>
+          </td>
+          <td>
+            <input type="file" />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <label for="">Select Your Favorite Color : </label>
+          </td>
+          <td>
+            <input type="color" />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <label for="">Enter Your Age : </label>
+          </td>
+          <td>
+            <input type="number" min="20" max="40" />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <label for="">Select Range Section : </label>
+          </td>
+          <td>
+            <input type="range" min="1" max="100" />
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <label for="">Select Your Division/State : </label>
+          </td>
+          <td>
+            <select name="" id="" size="1">
+              <option value="Kayin">Kayin</option>
+              <option value="Shan">Shan</option>
+              <option value="Chin">Chin</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <label for="">Enter Your Batch Name : </label>
+          </td>
+          <td>
+            <input type="text" list="blist" />
+            <datalist id="blist">
+              <option value="IT-Batch 1">IT-Batch 1</option>
+              <option value="IT-Batch 2">IT-Batch 2</option>
+              <option value="IT-Batch 3">IT-Batch 3</option>
+              <option value="IT-Batch 4">IT-Batch 4</option>
+              <option value="IT-Batch 5">IT-Batch 5</option>
+              <option value="IT-Batch 6">IT-Batch 6</option>
+              <option value="IT-Batch 7">IT-Batch 7</option>
+              <option value="JP-SP-Batch 1">JP-SP-Batch 1</option>
+              <option value="JP-SP-Batch 2">JP-SP-Batch 2</option>
+              <option value="JP-SP-Batch 3">JP-SP-Batch 3</option>
+              <option value="JP-SP-Batch 4">JP-SP-Batch 4</option>
+            </datalist>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <label for="">Gender : </label>
+          </td>
+          <td><input type="radio" />Male <input type="radio" />Female</td>
+        </tr>
+
+        <tr>
+          <td colspan="2">
+            <fieldset>
+              <legend>Level Section...</legend>
+              <input type="radio" />N1 <input type="radio" />N2
+              <input type="radio" />N3 <input type="radio" />N4
+              <input type="radio" />N5
+            </fieldset>
+          </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <fieldset>
+                    <legend>Level Section...</legend>
+                    <input type="checkbox" />Swimming 
+                    <input type="checkbox" />Reading
+                    <input type="checkbox" />Iinternet Surfing <br>
+                    <input type="checkbox" />Traveling
+                    <input type="checkbox" />Dancing 
+                    <input type="checkbox" />Sleeping <br>
+                    <input type="checkbox" />Singing 
+                    <input type="checkbox" />PlayingGames
+                  </fieldset>
+            </td>
+        </tr>
+
+        <tr>
+          <td align="center" rowspan="3" colspan="3">
+            <input type="submit" value="Save" />
+            <input type="reset" value="Clear" />
+            <input type="button" value="Action" />
+          </td>
+        </tr>
+      </form>
+    </table>
+  </body>
+</html>
