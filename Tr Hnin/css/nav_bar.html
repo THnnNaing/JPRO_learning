@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    <style>
+        .nav a, .nav_ul li{
+            background-color: rgb(163, 0, 163);
+            color: white;
+            padding: 20px;
+            text-decoration: none;
+
+        }
+        .nav a:hover, .nav_ul li:hover{
+            border: 1px solid rgb(253, 0, 253);
+            color: rgb(163, 0, 163);
+            background-color: white;
+        }
+        .nav_ul li{
+            
+        }
+        .nav_ul a{
+            text-decoration: none;
+        }
+        .nav_ul a li{
+            list-style-type: none;
+            width: 70px;
+            text-align: center;
+            /* display: inline-block; */
+            float: left;
+            margin: 5px;
+        }
+        .nav, .nav_ul{
+            margin: 20px 0px 20px 0px;
+            padding: 10px;
+        }
+        @media screen and (max-width:520px) {
+            .nav a{
+                display: block;
+                display: 1px solid white;
+                text-align: center;
+            }
+            .nav_ul, .nav_ul ul{
+                margin: 0px;
+                padding: 0px;
+            }
+            .nav_ul a li{
+                float: none;
+                width: 100%;
+                margin: 0px;
+                border: 1px solid white;
+            }
+        }
+        @media screen and (max-width:521px) and (max-width:750px) {
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Products</a>
+        <a href="#">Feedback</a>
+        <a href="#">Login</a>
+    </div>
+    <div class="nav_ul">
+        <ul>
+            <a href="#"><li>Home</li></a>
+            <a href="#"><li>About</li></a>
+            <a href="#"><li>Products</li></a>
+            <a href="#"><li>Feedback</li></a>
+            <a href="#"><li>Login</li></a>
+        </ul>
+    </div> <br>
+    <div class="nav_ul">
+        <ul>
+            <a href="#"><li>Home</li></a>
+            <a href="#"><li>About</li></a>
+            <a href="#"><li>Products</li></a>
+            <a href="#"><li>Feedback</li></a>
+            <a href="#"><li style="float: right;">Login</li></a>
+        </ul>
+    </div> <br>
+    <div class="nav_ul">
+        <ul>
+            <a href="#"><li>Home</li></a>
+            <a href="#"><li>About</li></a>
+            <a href="#"><li>Products</li></a>
+            <a href="#"><li>Feedback</li></a>
+            <a href="#"><li style="float: right;">Sign Up</li></a>
+            <a href="#"><li style="float: right;">Login</li></a>
+        </ul>
+    </div> <br>
+    <div class="nav_ul" style="margin-left: auto; margin-right: auto; width: 800px;">
+        <ul>
+            <a href="#"><li>Home</li></a>
+            <a href="#"><li>About</li></a>
+            <a href="#"><li>Products</li></a>
+            <a href="#"><li>Feedback</li></a>
+            <a href="#"><li>Login</li></a>
+        </ul>
+    </div> <br>
+    <div class="nav_ul" style="margin-left: auto;  width: 800px;">
+        <ul>
+            <a href="#"><li>Home</li></a>
+            <a href="#"><li>About</li></a>
+            <a href="#"><li>Products</li></a>
+            <a href="#"><li>Feedback</li></a>
+            <a href="#"><li>Login</li></a>
+        </ul>
+    </div> <br>
+     
+</body>
+</html>

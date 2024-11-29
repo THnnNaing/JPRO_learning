@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 25%;
+        border: 1px solid purple;
+        padding: 10px;
+        margin: auto;
+        border-radius: 10px;
+      }
+      h1 {
+        color: purple;
+        text-align: center;
+      }
+      p {
+        color: purple;
+        /* text-align: center; */
+      }
+      textarea {
+        width: 80%;
+        margin: 5px 0px 5px 40px;
+        border: 1px solid purple;
+        padding: 5px;
+      }
+      textarea:hover {
+        border: 1px solid red;
+      }
+      .one {
+        height: 15vh;
+      }
+      .two {
+        width: 80%;
+        margin: 5px 0px 5px 40px;
+        border: 1px solid purple;
+        padding: 5px;
+        height: 3vh;
+      }
+      .two:hover{
+        border: 1px solid red;
+      }
+      .submit {
+        width: 83%;
+        margin: 5px 0px 5px 40px;
+        padding: 8px;
+        background-color: purple;
+        color: white;
+        border: 1px solid purple;
+        border-radius: 5px;
+        transition: padding 0.3s ease, color 0.3s ease,
+          background-color 0.3s ease, border 0.3s ease, font-size 0.3s ease;
+      }
+      .submit:hover {
+        color: purple;
+        background-color: white;
+        /* padding: 10px; */
+        font-size: large;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Submit your feedback!</h1>
+      <p>
+        Your comments are important for us and are crucial in helping us provide
+        the best service
+      </p>
+      <form action="">
+        <textarea
+          class="one"
+          name=""
+          id=""
+          placeholder="comment here"
+        ></textarea>
+        <input
+          class="two"
+          name=""
+          id=""
+          placeholder="Enter your email address"
+        ></input>
+        <input class="submit" type="submit" />
+      </form>
+    </div>
+  </body>
+</html>

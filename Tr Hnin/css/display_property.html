@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Hover</title>
+    <style>
+        .inner{
+            width: 20%;
+            height: 100px;
+            background-color: red;
+            padding: 20px;
+            margin: 20px;
+        }
+        .upper .inner{
+            display: inline;
+        }
+        .middle{
+            /* position: relative; */
+        }
+        .middle .right{
+            display: none;
+            /* position: absolute; */
+        }
+        .middle .left:hover + .right{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="upper">
+        <div class="inner">Upper Left</div>
+        <div class="inner">Upper Right</div>
+    </div>
+    <div class="middle">
+        <div class="inner left">Middle Left</div>
+        <div class="inner right">Middle Right</div>
+    </div>
+    <div class="lower">
+        <div class="inner">Lower Left</div>
+        <div class="inner">Lower Right</div>
+    </div>
+</body>
+</html>

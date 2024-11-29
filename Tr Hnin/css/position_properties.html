@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position properties</title>
+    <style>
+        .gallery{
+            width: 40%;
+            position: relative;
+        }
+        .gallery button{
+            padding: 10px;
+            background-color: white;
+            color: black;
+            bottom: 30px;
+            right: 30px;
+            position: absolute;
+        }
+        .gallery .small_img{
+            position: absolute;
+            left: 30px;
+            top: 30px;
+            width: 15%;
+        }
+        .gallery .big_img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <img src="../images/image.png" alt="" class="big_img">
+        <button>Click Me</button>
+        <img src="../images/1.png" alt="" class="small_img">
+    </div>
+</body>
+</html>

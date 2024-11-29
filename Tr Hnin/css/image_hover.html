@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image hover : display, position</title>
+    <style>
+        .gallery{
+            position: relative;
+        }
+        .gallery .hover_img{
+            width: 50px;
+        }
+        .gallery .hidden_block{
+            display: none;
+            position: absolute;
+            z-index: 1;
+        }
+        .gallery .hover_img:hover + .hidden_block{
+            display: block;
+        }
+        img{
+            width: 20%;
+        }
+        .after_hover{
+            background-color: red;
+            width: 30%;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Hover with Display</h1>
+    <div class="gallery">
+        <img src="../images/1.png" alt="" class="hover_img">
+        <div class="hidden_block">
+            <img src="../images/2.png" alt="" class="">
+            <h1>Hidden Images show after clicking on upper images</h1>
+        </div>
+    </div>
+    <div class="after_hover">
+        This is the original div after gallery image
+    </div>
+</body>
+</html>
