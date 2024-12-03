@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Styled Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+
+      form {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        margin: auto;
+      }
+
+      label {
+        display: block;
+        margin: 10px 0 5px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="date"],
+      input[type="email"],
+      input[type="password"],
+      input[type="range"] {
+        width: 95%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      input[type="color"] {
+        width: 100%;
+        padding: 3px;
+        margin-bottom: 15px;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+        margin-right: 5px;
+      }
+
+      fieldset {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 15px;
+      }
+
+      legend {
+        padding: 0 10px;
+        font-weight: bold;
+      }
+
+      input[type="button"],
+      input[type="reset"] {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+
+      input[type="reset"] {
+        background-color: #dc3545;
+      }
+
+      input[type="button"]:hover,
+      input[type="reset"]:hover {
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" name="f1">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="txtName"
+        size="30"
+        maxlength="3"
+      /><br />
+
+      <label for="dob">DOB:</label>
+      <input type="date" id="dob" name="txtDob" max="2015-12-31" /><br />
+
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="txtEmail"
+        placeholder="thihan1@gmail.com"
+      /><br />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="txtPwd" /><br />
+
+      <fieldset>
+        <legend>Gender:</legend>
+
+        <input type="radio" id="male" name="rdoGender" value="male" />Male
+        <input type="radio" id="female" name="rdoGender" value="female" />Female
+      </fieldset>
+
+      <fieldset>
+        <legend>Language Preferred:</legend>
+
+        <input type="checkbox" id="basic" name="chkBasic" value="basic" />Basic
+        <input type="checkbox" id="n5" name="chkN5" value="N5" />N5
+
+        <input type="checkbox" id="n4" name="chkN4" value="N4" />N4
+
+        <input type="checkbox" id="n3" name="chkN3" value="N3" />N3
+
+        <input type="checkbox" id="n2" name="chkN2" value="N2" />N2
+
+        <input type="checkbox" id="n1" name="chkN1" value="N1" />N1
+      </fieldset>
+
+      <label for="color">Color:</label>
+      <input type="color" id="color" name="txtColor" /><br />
+
+      <label for="ageRange">Age Range:</label>
+      <input
+        type="range"
+        id="ageRange"
+        name="txtAge"
+        min="14"
+        max="35"
+        value="25"
+      /><br />
+
+      <input type="button" value="Show" onclick="showMsg()" />
+      <input type="reset" value="Cancel" />
+    </form>
+
+    <script>
+      function showMsg() {
+        let message = "Name : " + f1.txtName.value;
+        message += "\nDOB : " + f1.txtDob.value;
+        message += "\nEmail : " + f1.txtEmail.value;
+        message += "\nPassword : " + f1.txtPwd.value;
+        message += "\nGender : " +f1.rdoGender.value;
+        message += "\nJapanese Language Skills : ";
+        if (f1.chkBasic.checked) message += f1.chkBasic.value + " ";
+        if (f1.chkN5.checked) message += f1.chkN5.value + " ";
+        if (f1.chkN4.checked) message += f1.chkN4.value + " ";
+        if (f1.chkN3.checked) message += f1.chkN3.value + " ";
+        if (f1.chkN2.checked) message += f1.chkN2.value + " ";
+        if (f1.chkN1.checked) message += f1.chkN1.value + " ";
+        message += "\nFavorite Color : " + f1.txtColor.value;
+        message += "\nAge : " + f1.txtAge.value;
+        alert(message);
+      }
+      //   showMsg();
+    </script>
+  </body>
+
+  <!-- <body>
+    <table>
+        <form action="" name="f1">
+      <tr>
+        <td align="right">
+          <label for="">Name : </label>
+        </td>
+        <td><input type="text" name="txtName"/><br /></td>
+      </tr>
+
+      <tr>
+        <td align="right">
+          <label for="">DoB : </label>
+        </td>
+        <td>
+          <input type="date" name="txtDob"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td align="right"><label for="">Email : </label></td>
+        <td><input type="email" name="txtEmail"/></td>
+      </tr>
+
+      <tr>
+        <td align="right"><label for="">Password : </label></td>
+        <td><input type="password" name="txtPwd"/></td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <fieldset>
+            <legend>Gender</legend>
+            <input type="radio" name="radiogender" value="Male"/> Male
+            <input type="radio" name="radiogender" value="Female"/> Female
+          </fieldset>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <fieldset>
+            <legend>Japanese Language Skill</legend>
+            <input type="checkbox" name="chkBasic" value="Basic"/>Bassic
+            <input type="checkbox" name="chkN1" value="N1"/> N1
+            <input type="checkbox" name="chkN2" value="N2"/> N2
+            <input type="checkbox" name="chkN3" value="n3"/> N3
+            <input type="checkbox" name="chkN4" value="N4"/> N4
+            <input type="checkbox" name="chkN5" value="N5"/> N5
+          </fieldset>
+        </td>
+      </tr>
+
+      <tr>
+        <td align="right"><label for="">Favourite Color : </label></td>
+        <td>
+          <input type="color" name="txtColor"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td align="right"><label for="">Select Age Range : </label></td>
+        <td>14<input type="range" max="35" min="14" name="txtRange"/>35</td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <input type="button" value="Show" onclick="showMsg()"/>
+          <input type="reset" value="Cancle" />
+        </td>
+        <td></td>
+      </tr>
+    </form>
+    </table>
+    <script>
+        // function functionNme(parameter1, parameter2, ...){
+        //  code
+        //  return(optional)
+        //} 
+        function showMsg(){
+            let message = "Name : "+f1.txtName.value;
+            message += "\nDoB : "+f1.txtDob.value;
+            message += "\nEmail : "+f1.txtEmail.value;
+            message += "\nPassword : "+f1.txtPwd.value;
+            message += "\nGender : "+f1.radiogender.value;
+            message  += "\nJapanese Language Skill : ";
+            if(f1.chkBasic.checked) message += f1.chkBasic.value+", ";
+            if(f1.chkN5.checked) message += f1.chkN5.value+", ";
+            if(f1.chkN4.checked) message += f1.chkN4.value+", ";
+            if(f1.chkN3.checked) message += f1.chkN3.value+", ";
+            if(f1.chkN2.checked) message += f1.chkN2.value+", ";
+            if(f1.chkN1.checked) message += f1.chkN1.value;
+            message += "\nFavourite Color : "+f1.txtColor.value;
+            message += "\nAge : "+f1.txtRange.value;
+            alert(message);
+        }
+        //showMsg();
+    </script>
+  </body> -->
+</html>

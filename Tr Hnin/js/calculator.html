@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add two input numbers</h1>
+    <form action="" name="f1">
+        <label for="">Number 1:</label>
+        <input type="text" name="txtNum1"> <br><br>
+
+        <label for="">Number 2:</label>
+        <input type="text" name="txtNum2"> <br><br>
+
+        <label for="">Result</label>
+        <input type="text" name="txtResult" disabled> <br><br>
+
+        <input type="button" value="+" onclick="addition()">
+        <input type="button" value="-" onclick="division()">
+        <input type="reset" value="AC">
+    </form>
+
+    <h1>Calculator V1</h1>
+    <form action="" name="f2">
+        <label for="">Number 1:</label>
+        <input type="text" name="txtNum1"> <br><br>
+        
+        <label for="">Operator</label>
+        <select name="secOpt" id="">
+            <option value=".">...Select Operator...</option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select><br><br>
+
+        <label for="">Number 2:</label>
+        <input type="text" name="txtNum2"> <br><br>
+
+        <label for="">Result</label>
+        <input type="text" name="txtResult" disabled><br><br>
+
+        <input type="button" value="=" onclick="calculate()">
+        <input type="reset" value="AC">
+    </form>
+
+    <script>
+        function add(n1,n2){
+            return n1+n2;
+        }
+        function sub(n1,n2){
+            return n1-n2;
+        }
+        function mul(n1,n2){
+            return n1*n2;
+        }
+        function div(n1,n2){
+            return n1/n2;
+        }
+        function mod(n1,n2){
+            return n1%n2;
+        }
+
+        //for form1 button
+        function addition(){
+            let num1 = Number(f1.txtNum1.value);
+            let num2 = Number(f1.txtNum2.value);
+            f1.txtResult.value = num1+num2;
+        }
+
+        function division(){
+            let num1 = Number(f1.txtNum1.value);
+            let num2 = Number(f1.txtNum2.value);
+            f1.txtResult.value = num1/num2;
+        }
+
+        function isZero(n){
+            if(n==0) return true;
+            else return false;
+        }
+
+        function calculate(){
+            let num1 = Number(f2.txtNum1.value);
+            let num2 = Number(f2.txtNum2.value);
+            let opt=f2.secOpt.value;
+            switch(opt){
+                case '+':f2.txtResult.value=add(num1,num2);break;
+                case '-':f2.txtResult.value=sub(num1,num2);break;
+                case '*':f2.txtResult.value=mul(num1,num2);break;
+                case '/':
+                    if(isZero(num2))   f2.txtResult.value = "Division by 0";
+                else f2.txtResult.value=div(num1,num2);break;
+                case '%':
+                if(isZero(num2))   f2.txtResult.value = "Division by 0";    
+                f2.txtResult.value=mod(num1,num2);break;
+                default:f2.txtResult.value="need to select operator";
+            }
+        }
+    </script>
+</body>
+</html>
