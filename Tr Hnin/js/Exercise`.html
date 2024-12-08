@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .border {
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="chgColor">Changing the color By Click</h1>
+    <p class="chgColor">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure praesentium
+      rem accusantium distinctio voluptatem assumenda quis, non beatae veritatis
+      amet consectetur vel dignissimos nostrum? Repellat perferendis at
+      consequatur minus. Voluptatum.
+    </p>
+
+    <form action="" name="f1">
+      <label for="">Choose Color : </label>
+      <input type="color" /><br />
+
+      <label for="">Check Range</label>
+      15<input type="range" min="15" max="35" name="txtRange" onmousemove="changeRange()" />35<br />
+    </form>
+    <p>Your Selected Range: <span id="rshow"></span></p>
+
+    <button onclick="changeColor()">Change Color</button>
+    <button id="btnborder" onclick="addBorder()">Add Border</button>
+    <button id="btnPadding" onclick="changePadding()">Add Paddig</button>
+
+    <script>
+      //display default range value when the page is loaded
+      let rvalue = f1.txtRange.value;
+      let span = document.getElementById("rshow");
+      span.innerHTML = rvalue;
+    //   document.getElementById("rshow").innerHTML = rvalue;  
+
+        function changeRange(){
+            span.innerHTML = f1.txtRange.value;
+        }
+
+      function changeColor() {
+        // const color = document.querySelector('input[type="color"]').value;
+        // document.querySelectorAll(".chgColor").style.color = color;
+        // document.querySelector('.chgColor1').style.color = color;
+
+        const color = document.querySelector('input[type="color"]').value;
+        const elements = document.querySelectorAll(".chgColor");
+        elements.forEach((element) => {
+          element.style.color = color; // Change color for each element
+        });
+      }
+      //   function addBorder() {
+      //     const bordertag = document.getElementsByClassName("chgColor");
+      //     // for (let i=0; i<bordertag.length;i++){
+      //     //     bordertag[i].setAttribute("class","border");
+      //     // }
+      //     bordertag[0].classList.add("border");
+      //     bordertag[1].classList.add("border");
+      //     btnborder.innerHTML = "Remove Border";
+      //     if ((btnborder.innerHTML = "Remove Border")) {
+      //       btnborder.onclick = function () {
+      //         bordertag[0].classList.remove("border");
+      //         bordertag[1].classList.remove("border");
+      //         btnborder.innerHTML = "Add Border";
+      //       };
+      //     }
+      //   }
+
+      function addBorder() {
+        const bordertag = document.getElementsByClassName("chgColor");
+
+        // Check if the first element has the 'border' class
+        if (bordertag[0].classList.contains("border")) {
+          // If it does, remove the border class
+          for (let i = 0; i < bordertag.length; i++) {
+            bordertag[i].classList.remove("border");
+          }
+          btnborder.innerHTML = "Add Border"; // Update button text
+        } else {
+          // If it doesn't, add the border class
+          for (let i = 0; i < bordertag.length; i++) {
+            bordertag[i].classList.add("border");
+          }
+          btnborder.innerHTML = "Remove Border"; // Update button text
+        }
+      }
+
+      function changePadding() {
+        const padding = document.getElementsByClassName("chgColor");
+        const btn = document.querySelector("#btnPadding");
+        if (btn.innerHTML == "Add Padding") {
+          for (let i = 0; i < padding.length; i++) {
+            padding[i].style.padding = "10px";
+          }
+          btn.innerHTML = "Remove Padding";
+        } else {
+          for (let i = 0; i < padding.length; i++) {
+            padding[i].style.padding = "0px";
+          }
+          btn.innerHTML = "Add Padding";
+        }
+      }
+    </script>
+  </body>
+</html>

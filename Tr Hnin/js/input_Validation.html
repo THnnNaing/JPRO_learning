@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-size: 24px;
+        font-family: arial;
+      }
+      table {
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+      }
+      tr {
+        height: 50px;
+      }
+      td {
+        padding: 10px;
+      }
+      td:nth-child(odd) {
+        text-align: right;
+        width: 40%;
+      }
+      form input {
+        width: 100%;
+        padding: 10px;
+        font-size: 24px;
+      }
+      .btng input {
+        width: 100px;
+        padding: 10px;
+        font-size: 20px;
+      }
+      span {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <form action="" name="f1">
+        <tr>
+          <td>
+            <label for="">Name<span>*</span>: </label>
+          </td>
+          <td>
+            <input type="text" name="txtName" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="">Age<span>*</span>: </label>
+          </td>
+          <td>
+            <input type="text" name="txtAge" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="">Phonenumber<span>*</span>: </label>
+          </td>
+          <td>
+            <input type="text" name="txtPh" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="">Email<span>*</span>: </label>
+          </td>
+          <td>
+            <input type="email" name="txtEmail" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="">Password<span>*</span>: </label>
+          </td>
+          <td>
+            <input type="password" name="txtPasswordd" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="">Confirm<span>*</span>: </label>
+          </td>
+          <td>
+            <input type="password" name="txtConfirm" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="btng">
+            <input type="submit" value="Save" />
+            <input type="reset" value="Cancel" alt="Cancel" />
+          </td>
+        </tr>
+      </form>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating list using DOM</title>
+    <style>
+        .ldiv{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Show Array using List</h1>
+    <div id="ldiv"></div>
+    <script>
+        const fruit = ["Apple","Orange","Banana","Lime"];
+        fruit.push("Pineapple");
+        fruit.sort();
+        let text="<ul>";
+            for (let i = 0; i <fruit.length; i++) {
+                text += "<li>" + fruit[i] + "</li>";
+            }
+            text+="</ul>";
+            document.getElementById("ldiv").innerHTML=text;
+    </script>
+</body>
+</html>

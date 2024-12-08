@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add or Remove elements using DOM</title>
+    <style>
+        .block{
+            border: 1px solid black;
+            padding: 10px;
+            margin: 5px;
+        }
+        .block h1{
+            color: blue;
+            padding: 10px;
+            font-size: 30px;
+        }
+        .block p{
+            text-align: justify;
+            color: brown;
+            font-size: 27px;
+        }        
+    </style>
+</head>
+<body>
+    <h1>Adding New Elements or Removing Existing Elements</h1>
+    <button id="btnAdd" onclick="addElement()">Add New</button>
+    <button onclick="removeElement()">Remove</button>
+    <script>
+        let count = 0;
+        function addElement(){
+            const div = document.createElement("div");
+            div.setAttribute("class","block");
+
+            const h1 = document.createElement("h1");
+            h1.innerHTML = "Heading "+(++count);
+
+            div.appendChild(h1);
+
+            const p = document.createElement("p");
+            p.innerHTML = "This is the paragraph within the Div after heading.";
+
+            div.appendChild(p);
+
+            const btn = document.getElementById("btnAdd");
+
+            document.body.insertBefore(div,btn);
+        }
+        function removeElement(){
+            const div = document.getElementsByClassName("block");
+            if(div.length>0){
+                document.body.removeChild(div[div.length-1]);
+                // document.body.removeChild(div[0]);
+            }
+        }
+    </script>
+</body>
+</html>

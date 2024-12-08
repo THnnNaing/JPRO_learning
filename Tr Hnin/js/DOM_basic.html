@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg{
+            background-color: pink;
+            color: white;
+            padding: 10px;
+            border-bottom: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Testing getElementById</h1>
+    <p id="p1"></p>
+    <button onclick="addData()">Add Data</button>
+
+    <script>
+        function addData(){
+            document.getElementById("p1").innerHTML="New Added Data!";
+        }
+    </script>
+
+    <hr>
+
+    <h1>Testing getElementsByClassName</h1>
+    <p class="cp">This is the firsst paragraph</p>
+    <p class="cp">This is the second paragraph</p>
+    <p class="cp">This is the third paragraph</p>
+    <button onclick="changeColor()">Change color of all paragraph</button>
+    <script>
+        function changeColor(){
+            const ptags = document.getElementsByClassName("cp");
+            for (let i = 0; i <ptags.length; i++) {
+                ptags[i].style.color = "green";
+                
+            }
+        }
+    </script>
+    <hr>
+    <h1>Testing getElementByTagName</h1>
+    <ul>
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Banana</li>
+    </ul>
+    <button onclick="addClass()">Add new class</button>
+    <script>
+        function addClass(){
+            const litags = document.getElementsByTagName("li");
+            for(let i=0;i<litags.length;i++){
+                litags[i].setAttribute("class","bg");
+            }
+        }
+    </script>
+</body>
+</html>
