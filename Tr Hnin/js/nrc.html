@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="f1" onsubmit="return checkForm()">
+        <label for="">NRC : </label>
+        <select name="divCode" id="" onchange="showCode()">
+            <option value=".">...</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+        </select> /
+        <select name="cityCode" id="code">
+            <option value="...">...Select...</option>
+        </select> (Naing)
+        <input type="number" pattern="/^[0-9]{6}$/i" title="It must be exactly 6 diigts" name="txtDigit" placeholder="######"> <br>
+        <input type="submit" value="Save">
+        <input type="reset" value="Cancel">
+    </form>
+    <script>
+              function checkForm() {
+    // Get form values
+    const divCode = document.forms["f1"]["divCode"].value;
+    const cityCode = document.forms["f1"]["cityCode"].value;
+    const txtDigit = document.forms["f1"]["txtDigit"].value;
+
+    // Validate Division Code
+    if (divCode === ".") {
+        alert("Please select a division code.");
+        return false;
+    }
+
+    // Validate City Code
+    if (cityCode === "." || cityCode === "...Select...") {
+        alert("Please select a city code.");
+        return false;
+    }
+
+    // Validate Text Digit (6-digit number)
+    const digitPattern = /^\d{6}$/;
+    if (!digitPattern.test(txtDigit)) {
+        alert("The number must be exactly 6 digits.");
+        return false;
+    }
+
+    // If all validations pass
+    alert("Form submitted successfully!");
+    return true;
+}
+        function showCode(){
+            const d1=["BaMaNa","KhaHpaNa","DaHpaYa","HaPaNa","HpaKaNa","AhGaYa","KaMaNa","KaMaTa","KaPaTa","MaKhaBa","MaSaNa","MaKaTa","MaNyaNa","KhaLaHpa","LaGaNa","MaMaNa","MaKaNa","MaLaNa","NaMaNa","PaWaNa","PaNaDa","PaTaAh","PaTaAh","SaDaNa","YaBaYa","YaKaNa","SaBaNa","SaPaYa","TaNaNa","SaLaNa","TaSaLa","WaMaNa"]; 
+            const d2=["BaLaKha","DaMaSa","HpaSaNa","HpaYaSa","LaKaNa","MaSaNa","YaTaNa","aThaNa"]; 
+            const d3=["BaGaLa","LaBaNa","BaAhNa","HpaPaNa","BaThaSa","KaMaMa","KaKaYa","KaDaNa","KaSaKa","KaDaTa","LaThaNa","MaWaTa","PaKaNa","YaYaTha","SaKaLa","ThaTaNa","ThaTaKa","WaLaMa"]; 
+            const d4=["KaKhaNa","HpaLaNa","HaKhaNa","KaPaLa","MaTaPa","MaTaNa","PaLaWa","YaZaNa","YaKhaDa","SaMaNa","TaTaNa","HtaTaLa","TaZaNa"]; 
+            const d5=["AhYaTa","BaMaNa","BaTaLa","KhaTaNa","KhaOuTa","HaMaLa","AhTaNa","KaLaHta","KaLaWa","KaBaLa","KaNaNa","KaThaNa","KaLaTa","KhaOuNa","KaLaNa","LaHaNa","LaYaNa","MaLaNa","MaKaNa","MaYaNa","MaMaNa","MaMaTa","NaYaNa","NgaZaNa","PaLaNa","HpaPaNa","PaLaBa","SaKaNa","SaLaKa","YaBaNa","DaPaYa","TaMaNa","TaSaNa","HtaKhaNa","WaLaNa","WaThaNa","YaOuNa","YaMaPa","KaMaNa","KhaPaNa"]; 
+            const d6=["BaPaNa","HtaWaNa","KaLaAh","KaThaNa","KaSaNa","LaLaNa","MaMaNa","PaLaNa","TaThaYa","ThuYaKha","YaHpaNa","KhaMaNa","MaTaNa","PaLaTa","MaAhYa","MaAhYa","KaYaYa"]; 
+            const d7=["DaOuNa","KaPaKa","KaWaNa","KaKaNa","KaTaKha","LaPaTa","MaLaNa","MaNyaNa","NaTaLa","NyaLaPa","AhHpaNa","AhTaNa","PaTaNa","PaKhaTa","PaKhaNa","PaTaTa","PaNaKa","HpaMaNa","PaMaNa","YaTaNa","YaKaNa","HtaTaPa","TaNgaNa","ThaNaPa","ThaWaTa","ThaKaNa","ThaSaNa","WaMaNa","YaTaYa","ZaKaNa","PaTaSa"]; 
+            const d8=["AhLaNa","KhaMaNa","GaGaNa","KaMaNa","MaKaNa","MaBaNa","MaTaNa","MaLaNa","MaMaNa","MaHtaNa","MaThaNa","NaMaNa","NgaHpaNa","PaKhaKa","PaMaNa","PaHpaNa","SaLaNa","SaMaNa","SaHpaNa","SaTaYa","SaPaWa","TaTaKa","ThaYaNa","HtaLaNa","YaNaKha","YaSaKa","MaHtaNa","KaHtaNa","MaTaNa"]; 
+            const d9=["AhMaYa","AhMaZa","KhaAhZa","KhaMaSa","KaPaTa","KaSaNa","MaTaYa","MaHaMa","MaLaNa","MaYaMa","MaYaTa","MaNaMa","MaNaTa","MaHtaLa","MaKaNa","MaKhaNa","MaThaNa","NaHtaNa","NaHtaKa","NgaThaYa","NgaZaNa","NyaOuNa","PaThaKa","PaBaNa","PaKaKha","PaOuLa","SaKaNa","SaKaTa","ThaPaKa","TaTaOu","TaThaNa","ThaSaNa","WaTaNa","YaMaTha","NgaThaYa","TaKaNa","TaKaTa","MaMaNa","DaKhaTha","LaWaNa","OuTaTha","PaBaTha","PaMaNa","TaKaNa","ZaBaTha","ZaYaTha"]; 
+            const d10=["BaLaNa","KhaSaNa","KhaZaNa","KaMaYa","KaHtaNa","LaMaNa","MaLaMa","MaDaNa","PaMaNa","ThaHpaYa","ThaHtaNa","YaMaNa"]; 
+            const d11=["AaMaNa","BaThaTa","GaMaNa","KaHpaNa","KaTaNa","MaAhNa","MaAhTa","MaTaNa","MaPaNa","MaAhNa","MaOuNa","MaPaTa","PaTaNa","PaNaKa","PaNaTa","YaBaNa","YaThaTa","SaTaNa","ThaTaNa","TaKaNa","KaTaLa","TaPaWa"]; 
+            const d12=["AhLaNa","BaHaNa","BaTaHta","KaKaKa","DaGaYa","DaGaMa","DaGaSa","DaGaTa","DaGaNa","DaLaNa","DaPaNa","LaThaYa","LaMaNa","LaKaNa","MaBaNa","HtaTaPa","AhSaNa","KaMaYa","KaMaNa","KhaYaNa","KaKhaKa","KaTaTa","KaTaNa","KaMaTa","LaMaTa","LaThaNa","MaYaKa","MaGaDa","MaGaTa","OuKaMa","PaBaTa","PaZaTa","SaKhaNa","SaKaKha","SaKaNa","YaPaTha","OuKaTa","TaTaHta","TaKaNa","TaMaNa","ThaKaTa","ThaLaNa","ThaGaKa","ThaKhaNa","TaTaNa","YaKaNa","OuKaNa"]; 
+            const d13=["AhKhaNa","KhaYaHa","KhaMaNa","HaTaNa","HaPaNa","HaPaTa","SaHpaNa","ThaNaNa","SaSaNa","ThaPaNa","KaLaHpa","KaLaNa","KaLaDa","KaMaSa","KaTaNa","KaYaNa","KaTaTa","KaHaNa","KaLaNa","KaLaTa","KaKhaNa","KaMaNa","KaTaLa","KaThaNa","LaKhaNa","LaKhaTa","LaYaNa","LaKaNa","LaKaTa","LaKhaNa","LaHaNa","LaLaNa","LaHtaNa","MaBaNa","MaMaSa","MaTaNa","MaTaTa","MaMaNa","MaHpaNa","MaKaNa","MaPaNa","MaHpaNa","MaSaNa","MaYaNa","MaKhaNa","MaLaNa","MaMaNa","MaMaTa","MaMaNa","MaMaTa","MaNaNa","MaPaNa","MaPaNa","MaTaNa","MaYaTa","MaYaNa","MaYaNa","MaSaTa","NaKhaWa","NaTaNa","NaKhaTa","NaKhaNa","NaMaTa","NaHpaNa","NaSaNa","NaSaNa","NaKaNa","NaWaNa","NaPhaNa","NaKhaNa","NakhaTa","NyaYaNa","PaKhaNa","PaYaNa","PaSaNa","PaWaNa","HpaKhaNa","PaTaYa","PaLaNa","TaKhaLa","TaYaNa","TaKhaNa","YaLaNa","YaSaNa","YaHpaNa","YaNgaNa","NaTaYa","PaLaTa","KhaLaNa","PaPaKa","MaHaYa","TaMaNya","MaBaNa","MaNgaNa","AhTaNa","TaLaNa"];
+            const d14=["AhMaTa","BaKaLa","DaNaHpa","DaDaYa","AhMaNa","HaKaKa","HaThaTa","AhGaPa","KaKaHta","KaLaNa","KaKhaNa","KaKaNa","KaPaNa","LaPaTa","LaMaNa","MaAhNa","MaMaNa","NgaPaTa","NgaThaKha","NgaYaKa","NgaSaNa","NgaThaYa","NyaTaNa","PaTaNa","PaThaNa","HpaPaNa","PaSaLa","YaThaYa","ThaPaNa","WaKhaMa","YaKaNa","ZaLaNa","PaThaYa"];
+            //getting the division code
+            let dcode = f1.divCode.value;
+            //getting element to show the corresponding city code
+            let x = document.getElementById("code");
+            //remove existing element in x excluding ...Select...
+            while(x.length>1){
+                x.remove(x.length-1);
+            }
+
+            switch(dcode){
+                case "1":
+                dataArray = d1;
+                break;
+                case "2":
+                dataArray = d2;
+                break;
+                case "3":
+                dataArray = d3;
+                break;
+                case "4":
+                dataArray = d4;
+                break;
+                case "5":
+                dataArray = d5;
+                break;
+                case "6":
+                dataArray = d6;
+                break;
+                case "7":
+                dataArray = d7;
+                break;
+                case "8":
+                dataArray = d8;
+                break;
+                case "9":
+                dataArray = d9;
+                break;
+                case "10":
+                dataArray = d10;
+                break;
+                case "11":
+                dataArray = d11;
+                break;
+                case "12":
+                dataArray = d12;
+                break;
+                case "13":
+                dataArray = d13;
+                break;
+                case "14":
+                dataArray = d14;
+                break;
+                default: 
+                dataArray = [];            
+            }
+            dataArray.forEach(code => {
+                const option = document.createElement("option");
+                option.value = code;
+                option.textContent = code;
+                x.add(option);
+            });
+
+        }
+    </script>
+</body>
+</html>

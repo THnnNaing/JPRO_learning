@@ -37,17 +37,24 @@
       span {
         color: red;
       }
+      .errMsg {
+        color: red;
+        font-size: 15px;
+        padding-left: 8px;
+        display: none;
+      }
     </style>
   </head>
   <body>
     <table>
-      <form action="" name="f1">
+      <form action="" name="f1" onsubmit="return validateForm()">
         <tr>
           <td>
             <label for="">Name<span>*</span>: </label>
           </td>
           <td>
-            <input type="text" name="txtName" />
+            <input type="text" name="txtName" placeholder="Mr.Thi Han" />
+            <span class="errMsg">This is Wrong!</span>
           </td>
         </tr>
         <tr>
@@ -56,6 +63,7 @@
           </td>
           <td>
             <input type="text" name="txtAge" />
+            <span class="errMsg">This is Wrong!</span>
           </td>
         </tr>
         <tr>
@@ -63,7 +71,8 @@
             <label for="">Phonenumber<span>*</span>: </label>
           </td>
           <td>
-            <input type="text" name="txtPh" />
+            <input type="text" name="txtPh" placeholder="09-7993456789" />
+            <span class="errMsg">This is Wrong!</span>
           </td>
         </tr>
         <tr>
@@ -71,7 +80,8 @@
             <label for="">Email<span>*</span>: </label>
           </td>
           <td>
-            <input type="email" name="txtEmail" />
+            <input type="email" name="txtEmail" placeholder="abc@gmail.com" />
+            <span class="errMsg">This is Wrong!</span>
           </td>
         </tr>
         <tr>
@@ -79,7 +89,14 @@
             <label for="">Password<span>*</span>: </label>
           </td>
           <td>
-            <input type="password" name="txtPasswordd" />
+            <input
+              type="password"
+              name="txtPassword"
+              onfocus="showpwdTip()"
+              onblur="hideErrMsg()"
+              onkeyup="checkPwd()"
+            />
+            <span class="errMsg">This is Wrong!</span><br />
           </td>
         </tr>
         <tr>
@@ -88,15 +105,166 @@
           </td>
           <td>
             <input type="password" name="txtConfirm" />
+            <span class="errMsg">This is Wrong!</span>
           </td>
         </tr>
         <tr>
           <td colspan="2" class="btng">
             <input type="submit" value="Save" />
-            <input type="reset" value="Cancel" alt="Cancel" />
+            <input type="reset" value="Reset" onclick="hideErrMsg()" />
           </td>
         </tr>
       </form>
     </table>
+    <span class="pwdTip errMsg">* at least one Captial letter</span><br />
+    <span class="pwdTip errMsg">* at least one Lower letter</span><br />
+    <span class="pwdTip errMsg">* at least one Digit letter</span><br />
+    <span class="pwdTip errMsg">* at least one Special letter</span><br />
+    <span class="pwdTip errMsg">* must be 8 Characters long</span><br />
+    <script>
+      function checkPwd() {
+        let ptip = document.getElementsByClassName("pwdTip");
+        for (let i = 0; i < ptip.length; i++) {
+          ptip[i].style.color = "red";
+        }
+        let pwd = f1.txtPassword.value;
+        //checking include upper character
+        if (pwd.match(/[A-Z]/g)) ptip[0].style.color = "green";
+        //checking include lower character
+        if (pwd.match(/[a-z]/g)) ptip[1].style.color = "green";
+        //checking include digit
+        if (pwd.match(/[0-9]/g)) ptip[2].style.color = "green";
+        // checking include special characters
+        if (pwd.match(/[!@#$%^&*(),.?":{}|<>]/g)) {
+          ptip[3].style.color = "green";
+        }
+        //checking at least 8 character long
+        if (pwd.length > 8) ptip[4].style.color = "green";
+      }
+
+      function showpwdTip() {
+        let ptip = document.getElementsByClassName("pwdTip");
+        for (let i = 0; i < ptip.length; i++) {
+          ptip[i].style.display = "inline";
+        }
+      }
+      function hideErrMsg() {
+        let errmessage = document.querySelectorAll(".errMsg");
+        for (let i = 0; i < errmessage.length; i++)
+          errmessage[i].style.display = "none";
+      }
+      function validateForm() {
+        let flag = true;
+        let errmessage = document.getElementsByClassName("errMsg");
+        let name = f1.txtName.value;
+        let pattern = /(Mr.|Mrs.|Miss)( [A-Z][A-Za-z]*)+/i;
+        //null
+        //For name
+        if (name == "") {
+          errmessage[0].innerHTML = "Please enter your name";
+          errmessage[0].style.display = "inline";
+          flag = false;
+        } else if (!name.match(pattern)) {
+          errmessage[0].innerHTML = "Format is Wrong, Type again";
+          errmessage[0].style.display = "inline";
+          f1.txtName.value = "";
+          flag = false;
+        } else {
+          errmessage[0].style.display = "none";
+        }
+        //For age
+        let age = f1.txtAge.value;
+        pattern = /[0-9]{2}/i;
+        if (age == "") {
+          errmessage[1].innerHTML = "Age is required";
+          errmessage[1].style.display = "inline";
+          flag = false;
+        } else if (!age.match(pattern)) {
+          errmessage[1].innerHTML = "Format is Wrong, Type again";
+          errmessage[1].style.display = "inline";
+          flag = false;
+          f1.txtAge.value = "";
+        } else if (Number(age) < 14 || Number(age) > 35) {
+          errmessage[1].innerHTML = "Age value is between 14 and 35";
+          errmessage[1].style.display = "inline";
+          flag = false;
+          f1.txtAge.value = "";
+        } else {
+          errmessage[1].style.display = "none";
+        }
+        //For phonenumber
+        let phonenumber = f1.txtPh.value;
+        pattern = /^(09|\+959)[0-9]{7,9}$/i;
+        if (phonenumber == "") {
+          errmessage[2].innerHTML = "Phonenumber is required";
+          errmessage[2].style.display = "inline";
+          flag = false;
+        } else if (!phonenumber.match(pattern)) {
+          errmessage[2].innerHTML = "Format is Wrong, Type again";
+          errmessage[2].style.display = "inline";
+          flag = false;
+          f1.txtPh.value = "";
+        } else {
+          errmessage[2].style.display = "none";
+        }
+        //For email
+        let email = f1.txtEmail.value;
+        pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email == "") {
+          errmessage[3].innerHTML = "Email is required";
+          errmessage[3].style.display = "inline";
+          flag = false;
+        } else if (!email.match(pattern)) {
+          errmessage[3].innerHTML = "Please enter a valid email address";
+          errmessage[3].style.display = "inline";
+          flag = false;
+          f1.txtEmail.value = "";
+        } else {
+          errmessage[3].style.display = "none";
+        }
+        //For password
+        let password = f1.txtPassword.value;
+        let confirmPassword = f1.txtConfirm.value;
+
+        // Password pattern requires:
+        // - At least 8 characters
+        // - At least one uppercase letter
+        // - At least one lowercase letter
+        // - At least one number
+        // - At least one special character
+        let passwordPattern =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+        if (password == "") {
+          errmessage[4].innerHTML = "Password is required";
+          errmessage[4].style.display = "inline";
+          flag = false;
+        } else if (!password.match(passwordPattern)) {
+          errmessage[4].innerHTML =
+            "Password must contain at least 8 characters, including uppercase, lowercase, number and special character";
+          errmessage[4].style.display = "inline";
+          flag = false;
+          f1.txtPassword.value = "";
+        } else {
+          errmessage[4].style.display = "none";
+        }
+
+        // Confirm Password validation
+        if (confirmPassword == "") {
+          errmessage[5].innerHTML = "Please confirm your password";
+          errmessage[5].style.display = "inline";
+          flag = false;
+        } else if (password !== confirmPassword) {
+          errmessage[5].innerHTML = "Passwords do not match";
+          errmessage[5].style.display = "inline";
+          flag = false;
+          f1.txtConfirm.value = "";
+        } else {
+          errmessage[5].style.display = "none";
+        }
+
+        return flag;
+      }
+    </script>
   </body>
 </html>
