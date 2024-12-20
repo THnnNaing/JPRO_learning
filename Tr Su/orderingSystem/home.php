@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <title>Ordering System</title>
-    <link rel="stylesheet" type="text/css" href="Order.css" />
+    <link rel="stylesheet" type="text/css" href="order.css" />
 </head>
 
 <body>

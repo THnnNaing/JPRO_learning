@@ -71,6 +71,62 @@
         }
     }
 
+    $mobilenoErr = "";
+    $mobileno = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (empty($_POST["mobileno"])) {
+            $mobilenoErr = "Mobile number is required";
+        } else {
+            $mobileno = input_data($_POST["mobileno"]);
+
+            // Check if the mobile number matches a general phone number format (e.g., 10 digits)
+            if (!preg_match("/^\d{10}$/", $mobileno)) {
+                $mobilenoErr = "Invalid mobile number format. It should be 10 digits.";
+            }
+        }
+    }
+
+
+    $websiteErr = "";
+    $website = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (empty($_POST["website"])) {
+            $websiteErr = "Website is required";
+        } else {
+            $website = input_data($_POST["website"]);
+
+            // Check if the website matches a valid URL format
+            if (!filter_var($website, FILTER_VALIDATE_URL)) {
+                $websiteErr = "Invalid website format. Please enter a valid URL.";
+            }
+        }
+    }
+
+    $genderErr = "";
+    $gender = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (empty($_POST["gender"])) {
+            $genderErr = "Gender is required";
+        } else {
+            $gender = $_POST["gender"];
+        }
+    }
+
+    $agreeErr = "";
+    $agree = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (empty($_POST["agree"])) {
+            $agreeErr = "You must agree to the terms of service";
+        } else {
+            $agree = $_POST["agree"];
+        }
+    }
+
+
 
     ?>
 
@@ -87,7 +143,7 @@
         <span class="error">* <?php echo $emailErr; ?> </span>
         <br><br>
 
-        <input type="number" name="phone">
+        <input type="text" name="phone">
         <span class="error">* <?php echo $phoneErr; ?> </span>
         <br><br>
 
