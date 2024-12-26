@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body class="bg-gray-50">
 
     <div class="min-h-screen flex flex-col md:flex-row">
-        <?php include 'sidebar.php'; ?>
+       
         <div class="p-4 md:p-12 w-full">
             <div class="max-w-7xl mx-auto bg-white p-8 rounded-xl shadow-lg">
                 <h2 class="text-3xl font-bold mb-8 text-gray-800 border-b pb-4">Event Registration</h2>
