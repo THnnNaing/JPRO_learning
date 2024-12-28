@@ -13,15 +13,17 @@ $result = $con->query($sql);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Announcements</title>
 </head>
+
 <body class="bg-gray-100 p-4">
     <div class="max-w-screen-xl mx-auto">
-        <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Upcoming Events</h1>
+        <h1 class="text-2xl font-bold text-gray-800 mb-6">Upcoming Events</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <?php if ($result->num_rows > 0): ?>
                 <?php while ($row = $result->fetch_assoc()): ?>
@@ -41,9 +43,12 @@ $result = $con->query($sql);
                             <p class="text-sm text-gray-600">
                                 <strong>Sport Type:</strong> <?php echo htmlspecialchars($row['sport_type']); ?>
                             </p>
-                            
+
                             <!-- Button or Footer -->
                             <div class="mt-4 border-t border-gray-200 pt-4 flex justify-between items-center">
+                                <!-- Include the hidden input with proper name and value -->
+                                <input type="hidden" name="event_id" value="<?php echo htmlspecialchars($row['id']); ?>">
+
                                 <a href="Uevent_details.php?id=<?php echo $row['id']; ?>" class="text-blue-500 hover:underline text-sm">
                                     View Details
                                 </a>
@@ -51,6 +56,7 @@ $result = $con->query($sql);
                                     <strong class="text-gray-600">Organizer:</strong> <?php echo htmlspecialchars($row['organizer_name']); ?>
                                 </p>
                             </div>
+
                         </div>
                     </article>
                 <?php endwhile; ?>
@@ -62,4 +68,5 @@ $result = $con->query($sql);
         </div>
     </div>
 </body>
+
 </html>

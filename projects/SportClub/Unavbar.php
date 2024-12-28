@@ -33,7 +33,7 @@
             height: 2px;
             bottom: -2px;
             left: 0;
-            background-color: #0d9488; /* red-500 */
+            background-color:rgb(215, 22, 22); /* red-500 */
             transition: width 0.3s ease;
         }
 
@@ -69,12 +69,12 @@
       <div class="hidden md:block">
         <nav aria-label="Global">
           <ul class="flex items-center gap-6 text-sm">
-            <li><a class="nav-link text-gray-600 transition hover:text-gray-900" href="#">About</a></li>
-            <li><a class="nav-link text-gray-600 transition hover:text-gray-900" href="#">Announcements</a></li>
-            <li><a class="nav-link text-gray-600 transition hover:text-gray-900" href="#">Events</a></li>
-            <li><a class="nav-link text-gray-600 transition hover:text-gray-900" href="#">Club Info</a></li>
-            <li><a class="nav-link text-gray-600 transition hover:text-gray-900" href="#">History</a></li>
-            <li><a class="nav-link text-gray-600 transition hover:text-gray-900" href="#">Contact Us</a></li>
+            <li><a class="nav-link text-gray-600 transition hover:text-gray-900" href="#aboutus">About Us</a></li>
+            <li><a class="nav-link text-gray-600 transition hover:text-gray-900" href="#announcement">Announcements</a></li>
+            <li><a class="nav-link text-gray-600 transition hover:text-gray-900" href="#event">Events</a></li>
+            <li><a class="nav-link text-gray-600 transition hover:text-gray-900" href="#member">Members</a></li>
+            <li><a class="nav-link text-gray-600 transition hover:text-gray-900" href="#history">History</a></li>
+            <li><a class="nav-link text-gray-600 transition hover:text-gray-900" href="#contactus">Contact Us</a></li>
           </ul>
         </nav>
       </div>

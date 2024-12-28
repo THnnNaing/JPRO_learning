@@ -7,8 +7,9 @@ if ($con->connect_error) {
 }
 
 // Fetch data from your table
-$sql = "SELECT id, name, grade, batch, sport_type, img FROM member"; // Replace with your table name and columns
+$sql = "SELECT id, name, grade, batch, sport_type, img FROM member LIMIT 3"; // Adding LIMIT 3
 $result = $con->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +22,7 @@ $result = $con->query($sql);
 </head>
 <body class="bg-gray-100 p-4">
     <div class="max-w-screen-xl mx-auto">
-        <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Member Directory</h1>
+        <h1 class="text-2xl font-bold text-gray-800 mb-6">Member Directory</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <?php if ($result->num_rows > 0): ?>
                 <?php while ($row = $result->fetch_assoc()): ?>
@@ -59,13 +60,6 @@ $result = $con->query($sql);
                           Sport Type: <?php echo htmlspecialchars($row['sport_type']); ?>
                         </p>
                       </div>
-
-                      <!-- <dl class="mt-6 flex gap-4 sm:gap-6">
-                        <div class="flex flex-col-reverse">
-                          <dt class="text-sm font-medium text-gray-600">Member ID</dt>
-                          <dd class="text-xs text-gray-500"><?php echo htmlspecialchars($row['id']); ?></dd>
-                        </div>
-                      </dl> -->
                     </div>
                 <?php endwhile; ?>
             <?php else: ?>

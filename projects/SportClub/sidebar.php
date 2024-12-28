@@ -10,18 +10,15 @@
     </a>
     <div class="relative">
         <a href="#" class="block px-4 py-2 hover:bg-gray-700" onclick="toggleClubMenu(event)">
-            <i class="fas fa-users mr-2"></i>Sport Clubs
+            <i class="fas fa-users mr-2"></i>Announcements
             <i class="fas fa-chevron-down ml-2 text-sm"></i>
         </a>
         <div id="clubSubmenu" class="pl-4 hidden">
-            <a href="addClubs.php" class="block px-4 py-2 hover:bg-gray-700 text-gray-300">
-                <i class="fas fa-plus mr-2"></i>Add Clubs
+            <a href="checkAnnouncement.php" class="block px-4 py-2 hover:bg-gray-700 text-gray-300">
+                <i class="fas fa-plus mr-2"></i>Check Announcements
             </a>
-            <a href="manageClubs.php" class="block px-4 py-2 hover:bg-gray-700 text-gray-300">
-                <i class="fas fa-cog mr-2"></i>Manage Clubs
-            </a>
-            <a href="clubRequests.php" class="block px-4 py-2 hover:bg-gray-700 text-gray-300">
-                <i class="fas fa-bell mr-2"></i>Club Requests
+            <a href="manageAnnouncement.php" class="block px-4 py-2 hover:bg-gray-700 text-gray-300">
+                <i class="fas fa-cog mr-2"></i>Manage Announcements
             </a>
         </div>
     </div>
@@ -31,31 +28,22 @@
             <i class="fas fa-chevron-down ml-2 text-sm"></i>
         </a>
         <div id="eventSubmenu" class="pl-4 hidden">
-            <a href="manageAnncouncements.php" class="block px-4 py-2 hover:bg-gray-700 text-gray-300">
-                <i class="fas fa-plus mr-2"></i>Manage Anncouncements
+            <a href="checkEvent.php" class="block px-4 py-2 hover:bg-gray-700 text-gray-300">
+                <i class="fas fa-plus mr-2"></i>Check Events
             </a>
             <a href="manageEvent.php" class="block px-4 py-2 hover:bg-gray-700 text-gray-300">
                 <i class="fas fa-cog mr-2"></i>Manage Events
             </a>
-            <a href="manageActivities.php" class="block px-4 py-2 hover:bg-gray-700 text-gray-300">
-                <i class="fas fa-bell mr-2"></i>Manage Activities
-            </a>
         </div>
     </div>
-    <div class="relative">
-        <a href="#" class="block px-4 py-2 hover:bg-gray-700" onclick="toggleChecklistMenu(event)">
-            <i class="fas fa-users mr-2"></i>CheckLists
+    <a href="checkRegistrations.php" class="block px-4 py-2 hover:bg-gray-700" onclick="toggleChecklistMenu(event)">
+            <i class="fas fa-users mr-2"></i>Check Registrations
             <i class="fas fa-chevron-down ml-2 text-sm"></i>
         </a>
-        <div id="checklistSubmenu" class="pl-4 hidden">
-            <a href="eventChecklist.php" class="block px-4 py-2 hover:bg-gray-700 text-gray-300">
-                <i class="fas fa-plus mr-2"></i>Event Checklist
-            </a>
-            <a href="memberChecklist.php" class="block px-4 py-2 hover:bg-gray-700 text-gray-300">
-                <i class="fas fa-cog mr-2"></i>Member Checklist
-            </a>
-        </div>
-    </div>
+        <a href="checkMembers.php" class="block px-4 py-2 hover:bg-gray-700">
+            <i class="fas fa-users mr-2"></i>Check Members
+            <i class="fas fa-chevron-down ml-2 text-sm"></i>
+        </a>
     <a href="#" class="block px-4 py-2 hover:bg-gray-700">
         <i class="fas fa-cog mr-2"></i>Analytics
     </a>
@@ -75,10 +63,10 @@
             const submenu = document.getElementById('eventSubmenu');
             submenu.classList.toggle('hidden');
         }
-        function toggleChecklistMenu(event) {
-            event.preventDefault();
-            const submenu = document.getElementById('checklistSubmenu');
-            submenu.classList.toggle('hidden');
-        }
+        // function toggleChecklistMenu(event) {
+        //     event.preventDefault();
+        //     const submenu = document.getElementById('checklistSubmenu');
+        //     submenu.classList.toggle('hidden');
+        // }
     </script>
 

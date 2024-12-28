@@ -8,55 +8,70 @@ if ($con->connect_error) {
 }
 
 // Fetch sport types from database
-$query = "SELECT id, sport_type FROM event";
+$query = "SELECT MIN(id) AS id, sport_type
+FROM event
+GROUP BY sport_type;
+";
 $result = $con->query($query);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get form data
-    $first_name = trim($_POST['first_name'] ?? '');
-    $last_name = trim($_POST['last_name'] ?? '');
-    $username = trim($_POST['username'] ?? '');
+    $name = trim($_POST['name'] ?? '');
+    $grade = trim($_POST['grade'] ?? '');
+    $batch = trim($_POST['batch'] ?? '');
+    $sport_type = trim($_POST['sport_type'] ?? '');
+    $event_name = trim($_POST['event_name'] ?? '');
     $email = trim($_POST['email'] ?? '');
-    $phone = trim($_POST['phone'] ?? '');
-    $birth_date = trim($_POST['birth_date'] ?? '');
-    $address = trim($_POST['address'] ?? '');
-    $password = $_POST['password'] ?? '';
-    $confirm_password = $_POST['confirm_password'] ?? '';
-    $is_club_member = isset($_POST['is_club_member']) ? true : false;
 
-    if (!$is_club_member) {
-        // Redirect to club registration page
-        header('Location: club_registration.php');
-        exit();
-    }
+    // Initialize an array for errors
+    $errors = [];
 
     // Validate inputs
-    if (empty($first_name)) {
-        $errors['first_name'] = 'First name is required';
+    if (empty($name)) {
+        $errors['name'] = 'Name is required';
     }
 
-    if (empty($last_name)) {
-        $errors['last_name'] = 'Last name is required';
+    if (empty($grade)) {
+        $errors['grade'] = 'Grade is required';
     }
 
-    // ... existing username and email validation ...
-
-    if (empty($phone)) {
-        $errors['phone'] = 'Phone number is required';
+    if (empty($batch)) {
+        $errors['batch'] = 'Batch is required';
     }
 
-    if (empty($birth_date)) {
-        $errors['birth_date'] = 'Birth date is required';
+    if (empty($sport_type)) {
+        $errors['sport_type'] = 'Sport type is required';
     }
 
-    // If no errors, process the registration
+    if (empty($event_name)) {
+        $errors['event_name'] = 'Event name is required';
+    }
+
+    if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = 'A valid email is required';
+    }
+
+    // If no errors, insert data into database
     if (empty($errors)) {
-        // Here you would typically:
-        // 1. Hash the password
-        // 2. Save member details to database
-        // 3. Maybe send welcome email
-        // 4. Redirect to member dashboard
-        $success = "Membership registration successful!";
+
+        // Prepare and bind the SQL statement
+        $stmt = $con->prepare("INSERT INTO registration (name, grade, batch, sport_type, event_name, email) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssss", $name, $grade, $batch, $sport_type, $event_name, $email);
+
+        // Execute the statement
+        if ($stmt->execute()) {
+            $success = "Registration successful!";
+            echo "<script>
+            alert('New announcement created successfully!');
+            window.location.href = 'Uindex.php'; // Redirect to form page
+          </script>";
+        } else {
+            $errors['database'] = "Error: " . $stmt->error;
+        }
+
+        // Close the statement and connection
+        $stmt->close();
+        $con->close();
     }
 }
 ?>
@@ -74,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body class="bg-gray-50">
 
     <div class="min-h-screen flex flex-col md:flex-row">
-       
+
         <div class="p-4 md:p-12 w-full">
             <div class="max-w-7xl mx-auto bg-white p-8 rounded-xl shadow-lg">
                 <h2 class="text-3xl font-bold mb-8 text-gray-800 border-b pb-4">Event Registration</h2>
@@ -112,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 <?php endif; ?>
 
-                <form method="POST" class="mt-6">
+                <form method="POST" class="mt-6 ">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="flex flex-col justify-between">
                             <div class="space-y-6">
@@ -142,12 +157,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                 <div>
                                     <label class="block text-gray-700 text-sm font-semibold mb-2" for="sporttype">Sport Type</label>
-                                    <select id="sporttype" name="sporttype" 
+                                    <select id="sport_type" name="sport_type"
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200">
                                         <option value="">Select Sport Type</option>
-                                        <?php while($row = $result->fetch_assoc()): ?>
-                                            <option value="<?php echo htmlspecialchars($row['id']); ?>" 
-                                                <?php echo (isset($sporttype) && $sporttype == $row['id']) ? 'selected' : ''; ?>>
+                                        <?php while ($row = $result->fetch_assoc()): ?>
+                                            <option value="<?php echo htmlspecialchars($row['id']); ?>"
+                                                <?php echo (isset($sport_type) && $sport_type == $row['id']) ? 'selected' : ''; ?>>
                                                 <?php echo htmlspecialchars($row['sport_type']); ?>
                                             </option>
                                         <?php endwhile; ?>
@@ -155,11 +170,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
 
                                 <div>
-                                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="eventname">Event Name</label>
-                                    <input type="text" id="eventname" name="eventname"
+                                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="event_name">Event Name</label>
+                                    <input type="text" id="event_name" name="event_name"
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
                                         placeholder="Enter event name"
-                                        value="<?php echo htmlspecialchars($eventname ?? ''); ?>">
+                                        value="<?php echo htmlspecialchars($event_name ?? ''); ?>">
+                                </div>
+
+                                <div>
+                                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="email"> Email </label>
+                                    <input type="text" id="email" name="email"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200"
+                                        placeholder="Enter email"
+                                        value="<?php echo htmlspecialchars($email ?? ''); ?>">
                                 </div>
 
                                 <div class="flex items-center gap-3 mb-4">

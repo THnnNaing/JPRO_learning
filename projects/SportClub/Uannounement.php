@@ -20,7 +20,7 @@ $result = $con->query($sql);
     <title>Announcements</title>
 </head>
 <body class="bg-gray-100 p-4">
-<h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Announcements</h1>
+<h1 class="text-2xl font-bold text-gray-800 mb-6">Please Read Our Announcements</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         
         <?php if ($result->num_rows > 0): ?>

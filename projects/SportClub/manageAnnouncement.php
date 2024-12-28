@@ -10,39 +10,33 @@ if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }
 
-
-
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action']) && $_POST['action'] === 'create') {
     // Retrieve form data and sanitize input
-    $title = $con->real_escape_string($_POST['title']);
-    $eventdetail = $con->real_escape_string($_POST['eventdetail']);
-    $date = $con->real_escape_string($_POST['date']);
-    $eventlocation = $con->real_escape_string($_POST['eventlocation']);
+    $announcement = $con->real_escape_string($_POST['announcement']);
     $sportclub = $con->real_escape_string($_POST['sportclub']);
-    $organizername = $con->real_escape_string($_POST['organizername']);
+    $announcername = $con->real_escape_string($_POST['announcername']);
 
     // SQL query to insert data
-    $sql = "INSERT INTO event (event, details, date, location, sport_type, organizer_name)
-            VALUES ('$title', '$eventdetail', '$date', '$eventlocation', '$sportclub', '$organizername')";
+    $sql = "INSERT INTO announcement (announcement, sport_type, announcer_name)
+            VALUES ('$announcement', '$sportclub', '$announcername')";
 
     if ($con->query($sql) === TRUE) {
         // Use JavaScript alert for success
         echo "<script>
-            alert('New event created successfully!');
-            window.location.href = 'manageEvent.php'; // Redirect to form page
+            alert('New announcement created successfully!');
+            window.location.href = 'manageAnnouncement.php'; // Redirect to form page
           </script>";
     } else {
         // Use JavaScript alert for error
         echo "<script>
             alert('Error: " . addslashes($con->error) . "');
-            window.location.href = 'manageEvent.php'; // Redirect to form page
+            window.location.href = 'manageAnnouncement.php'; // Redirect to form page
           </script>";
     }
 }
 
-// Fetch events from the database
-$sql1 = "SELECT id, event, details, date, location, sport_type, organizer_name FROM event ORDER BY date DESC";
+$sql1 = "SELECT id, announcement, sport_type, announcer_name FROM announcement";
 $result = $con->query($sql1);
 
 // Close the connection
@@ -60,36 +54,20 @@ $con->close();
 </head>
 
 <body class="bg-gray-100">
+
     <div class="min-h-screen flex">
         <?php include 'sidebar.php'; ?>
-
         <div class="flex-1">
             <?php include 'adminheader.php'; ?>
-
-
             <div class="container mx-auto px-4 py-8">
                 <!-- Add Event Form -->
                 <div class="mb-8 bg-white p-6 rounded-lg shadow-md">
-                    <h2 class="text-2xl font-bold mb-4">Add New Event</h2>
+                    <h2 class="text-2xl font-bold mb-4">Add New Announcement</h2>
                     <form method="POST" class="space-y-4">
                         <input type="hidden" name="action" value="create">
                         <div>
-                            <label class="block text-gray-700">Event Title</label>
-                            <input type="text" name="title" required
-                                class="w-full p-2 border rounded-md">
-                        </div>
-                        <div>
-                            <label class="block text-gray-700">Event Details</label>
-                            <textarea name="eventdetail" id="" class="w-full p-2 border rounded-md"></textarea>
-                        </div>
-                        <div>
-                            <label class="block text-gray-700">Date</label>
-                            <input type="date" name="date" required
-                                class="w-full p-2 border rounded-md">
-                        </div>
-                        <div>
-                            <label class="block text-gray-700">Event Location</label>
-                            <input type="text" name="eventlocation" required
+                            <label class="block text-gray-700">Announcement</label>
+                            <input type="text" name="announcement" required
                                 class="w-full p-2 border rounded-md">
                         </div>
                         <div>
@@ -98,13 +76,13 @@ $con->close();
                                 class="w-full p-2 border rounded-md">
                         </div>
                         <div>
-                            <label class="block text-gray-700">Organizer Name</label>
-                            <input type="text" name="organizername" required
+                            <label class="block text-gray-700">Announcer Name</label>
+                            <input type="text" name="announcername" required
                                 class="w-full p-2 border rounded-md">
                         </div>
                         <button type="submit"
                             class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-                            Add Event
+                            Add Announcement
                         </button>
                     </form>
                 </div>
@@ -118,12 +96,9 @@ $con->close();
                             <thead>
                                 <tr class="bg-gray-200 text-left">
                                     <th class="px-2 py-1 border">No</th>
-                                    <th class="px-2 py-1 border">Event</th>
-                                    <th class="px-2 py-1 border">Details</th>
-                                    <th class="px-2 py-1 border">Date</th>
-                                    <th class="px-2 py-1 border">Location</th>
-                                    <th class="px-2 py-1 border">Type</th>
-                                    <th class="px-2 py-1 border">Organizer</th>
+                                    <th class="px-2 py-1 border">Announcement</th>
+                                    <th class="px-2 py-1 border">Sport Club</th>
+                                    <th class="px-2 py-1 border">Announcer Name</th>
                                     <th class="px-2 py-1 border">Actions</th>
                                 </tr>
                             </thead>
@@ -134,19 +109,16 @@ $con->close();
                                     while ($row = $result->fetch_assoc()):
                                     ?>
                                         <tr class="hover:bg-gray-100">
-                                            <td class="px-2 py-1 border"><?php echo $counter; ?></td> <!-- Use counter instead of $row['id'] -->
-                                            <td class="px-2 py-1 border"><?php echo $row['event']; ?></td>
-                                            <td class="px-2 py-1 border"><?php echo substr($row['details'], 0, 50) . (strlen($row['details']) > 50 ? '...' : ''); ?></td>
-                                            <td class="px-2 py-1 border"><?php echo $row['date']; ?></td>
-                                            <td class="px-2 py-1 border"><?php echo $row['location']; ?></td>
+                                            <td class="px-2 py-1 border"><?php echo $counter; ?></td>
+                                            <td class="px-2 py-1 border"><?php echo $row['announcement']; ?></td>
                                             <td class="px-2 py-1 border"><?php echo $row['sport_type']; ?></td>
-                                            <td class="px-2 py-1 border"><?php echo $row['organizer_name']; ?></td>
+                                            <td class="px-2 py-1 border"><?php echo $row['announcer_name']; ?></td>
                                             <td class="px-2 py-1 border text-center">
-                                                <a href="edit_event.php?id=<?php echo $row['id']; ?>"
+                                                <a href="edit_announcement.php?id=<?php echo $row['id']; ?>"
                                                     class="text-blue-500 hover:underline">Edit</a> |
-                                                <a href="delete_event.php?id=<?php echo $row['id']; ?>"
+                                                <a href="delete_announcement.php?id=<?php echo $row['id']; ?>"
                                                     class="text-red-500 hover:underline"
-                                                    onclick="return confirm('Are you sure you want to delete this event?');">
+                                                    onclick="return confirm('Are you sure you want to delete this annnouncement?');">
                                                     Delete
                                                 </a>
                                             </td>
@@ -161,12 +133,12 @@ $con->close();
                                     </tr>
                                 <?php endif; ?>
                             </tbody>
-
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </body>
 
 </html>
