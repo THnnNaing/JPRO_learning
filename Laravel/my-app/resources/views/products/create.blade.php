@@ -1,4 +1,4 @@
-@extends('products.layout')
+@extends('layouts')
 @section('content')
 <div class="card mt-5">
     <h2 class="card-header">Add New Product</h2>

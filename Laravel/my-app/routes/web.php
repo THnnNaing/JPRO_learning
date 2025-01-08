@@ -7,6 +7,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,3 +32,6 @@ Route::post('post-registration', [AdminController::class, 'postRegistration'])->
 Route::get('logout', [AdminController::class, 'logout'])->name('logout');
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+// FOR CUSTOMER MODULE 
+Route::get('/', [HomeController::class, 'index'])->name('home');

@@ -1,4 +1,4 @@
-@extends('products.layout')
+@extends('layouts')
 @section('content')
 <div class="card mt-5">
     <h3 class="card-header">Product Information</h3>

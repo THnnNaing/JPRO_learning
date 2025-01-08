@@ -1,9 +1,9 @@
-@extends('categories.layout')
+@extends('layouts')
+
 @section('content')
 <div class="card mt-5">
     <h3 class="card-header">Category</h3>
     <div class="card-body">
-        {{-- Display success message --}}
         @if (session('success'))
         <div class="alert alert-success" role="alert">{{ session('success') }}</div>
         @endif
