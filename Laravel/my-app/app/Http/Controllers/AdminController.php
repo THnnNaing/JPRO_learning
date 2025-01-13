@@ -22,7 +22,6 @@ class AdminController extends Controller
     {
         return view('auth.login');
     }
-
     /**
      * Write code on Method
      *
@@ -32,7 +31,6 @@ class AdminController extends Controller
     {
         return view('auth.registration');
     }
-
     /**
      * Write code on Method
      *
@@ -40,11 +38,11 @@ class AdminController extends Controller
      */
     public function postLogin(Request $request): RedirectResponse
     {
+
         $request->validate([
             'email' => 'required',
             'password' => 'required',
         ]);
-
         $credentials = $request->only('email', 'password');
         if (Auth::guard('admin')->attempt($credentials)) {
             return redirect()->intended('dashboard')
@@ -52,7 +50,6 @@ class AdminController extends Controller
         }
         return redirect("login")->withError('Oppes! You have entered invalid credentials');
     }
-
     /**
      * Write code on Method
      *
@@ -65,28 +62,23 @@ class AdminController extends Controller
             'email' => 'required|email|unique:admins',
             'password' => 'required|min:6',
         ]);
-
         $data = $request->all();
         $user = $this->create($data);
         Auth::login($user);
-
         return redirect("login")->withSuccess('Great! You have Successfully loggedin');
     }
-
     /**
      * Write code on Method
      *
      * @return response()
      */
-    public function dashboard()
-    {
-        if (Auth::check()) {
-            return view('dashboard');
-        }
-
-        return redirect("login")->withSuccess('Opps! You do not have access');
-    }
-
+    // public function dashboard()
+    // {
+    //     if (Auth::check()) {
+    //         return view('dashboard');
+    //     }
+    //     return redirect("login")->withSuccess('Opps! You do not have access');
+    // }
     /**
      * Write code on Method
      *
@@ -109,7 +101,6 @@ class AdminController extends Controller
     {
         Session::flush();
         Auth::logout();
-
         return Redirect('login');
     }
 }

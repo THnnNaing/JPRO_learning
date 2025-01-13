@@ -6,25 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    //
-    protected $fillable = [ 
-        'category_id', 
-        'name', 
-        'detail', 
-        'price', 
-        'image' 
-    ];
+    protected $fillable = [
+        'category_id',
+        'name',
+        'detail',
+        'price',
+        'image'
+        ];
 
-    // for join table with category  
-    public function category() 
-    { 
-        return $this->belongsTo(Category::class); 
+    // join table with Category
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 
-    public function orderDetail()
+    // join table with Review
+    public function review()
     {
-        return $this->hasMany(OrderDetail::class);
-    }   
+        return $this->hasMany(Review::class);
+    }
+
 }
-
-

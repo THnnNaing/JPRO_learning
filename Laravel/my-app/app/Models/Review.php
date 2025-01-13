@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
-    //
     protected $fillable = [
         'product_id',
         'customer_id',
@@ -23,5 +22,4 @@ class Review extends Model
     {
         return $this->belongsTo(Customer::class);
     }
-
 }

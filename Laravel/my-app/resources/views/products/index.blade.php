@@ -1,4 +1,5 @@
 @extends('layouts')
+{{-- @extends('products.layout') --}}
 @section('content')
 <div class="card mt-5">
     <h3 class="card-header">Product Information</h3>
@@ -10,7 +11,7 @@
         {{-- For Search --}}
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
             <form action="{{ route('products.search') }}" method="GET">
-                <input type="text" name="search" placeholder="Search By Products Information"
+                <input type="text" name="search" placeholder="Search By Products Informations"
                     value="{{ request()->input('search') ? request()->input('search') : '' }}">
                 <button class="btn btn-success btn-sm" type="submit">Search</button>
             </form>

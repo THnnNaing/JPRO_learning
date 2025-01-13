@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Customer;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Category;
 
 class HomeController extends Controller
 {
-    //
-    public function index(){
-        $categories = Category::with('product')->get();
-        return view('customers.index', compact('categories'));
+    public function index()
+    {
+        return view('customers.index');
     }
 }

@@ -6,13 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    //
-    protected $fillable = [ 
+    protected $fillable = [
         'customer_id',
         'total_price',
         'order_date',
-        'delivery_success',
-        'status'
+        'delivery_address',
+        'status',
     ];
 
     public function customer()
@@ -22,6 +21,6 @@ class Order extends Model
 
     public function OrderDetails()
     {
-        return $this->hasMany(OrderDetail::class);
+        return $this->HasMany(OrderDetail::class);
     }
 }
