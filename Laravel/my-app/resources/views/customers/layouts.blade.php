@@ -28,7 +28,7 @@
                     {{-- for Food Menu  --}}
                     <a class="nav-link" href="{{ route('food') }}">Food Menu</a>
 
-                    <!--  for About Us -->
+                    <!--  for Order -->
 
                     <!--  for Review -->
                     <a class="nav-link" href="{{ route('review') }}">Review</a>

@@ -9,12 +9,14 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminViewReviewController;
 use App\Http\Controllers\AdminCustomerController;
+use App\Http\Controllers\AdminOrderController;
 
 // For Customer Module
 use App\Http\Controllers\Customer\HomeController;
 use App\Http\Controllers\Customer\RegisterController;
 use App\Http\Controllers\Customer\ReviewController;
 use App\Http\Controllers\Customer\FoodController;
+use App\Http\Controllers\Customer\OrderController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,6 +42,11 @@ Route::get('/customer_search', [AdminCustomerController::class,'search'])->name(
 Route::get('viewreview', [AdminViewReviewController::class,'index'])->name('viewreview');
 Route::get('/viewreview_search', [AdminViewReviewController::class,'search'])->name('viewreview.search');
 
+Route::resource('orders', AdminOrderController::class);
+// Route::get('vieworder', [AdminOrderController::class, 'index'])->name('vieworder');
+Route::get('order_search', [AdminOrderController::class, 'search'])->name('orders.search');
+
+
 
 // Customer Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -60,6 +67,8 @@ Route::get('add-to-cart/{id}', [FoodController::class,'addToCart'])->name('add.t
 Route::patch('update-cart', [FoodController::class,'update'])->name('update.cart');
 Route::delete('remove-from-cart', [FoodController::class,'remove'])->name('remove.from.cart');
 
+Route::get('order', [OrderController::class, 'index'])->name('order');
+Route::post('order', [OrderController::class, 'store'])->name('order.store');
 
 
 

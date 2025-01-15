@@ -40,7 +40,7 @@ class FoodController extends Controller
 
     public function update(Request $request)
     {
-        if ($request->id and $request->quantity) {
+        if ($request->id & $request->quantity) {
             $cart = session()->get('cart');
             $cart[$request->id]['quantity'] = $request->quantity;
             session()->put('cart', $cart);

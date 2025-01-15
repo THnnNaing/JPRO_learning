@@ -43,6 +43,26 @@
                     </a>
                 </div>
             </div>
-            
+            <div class="col-md-3 col-6 mb-4">
+                <div class="card">
+                    <a href="{{ route('viewreview') }}" class="nav-link">
+                        <img src="/images/people.png" alt="" class="card-img-top" width="100" height="200px">
+                        <div class="card-body">
+                            <h5 class="card-title"> {{ $reviews }} Reviews </h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="card">
+                    <a href="{{ route('orders.index') }}" class="nav-link">
+                        <img src="/images/people.png" alt="" class="card-img-top" width="100" height="200px">
+                        <div class="card-body">
+                            <h5 class="card-title"> {{ $orders }} Orders</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
         </div>
     @endsection
