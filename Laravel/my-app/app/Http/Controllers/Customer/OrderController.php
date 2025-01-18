@@ -28,8 +28,8 @@ class OrderController extends Controller
         $cart = session()->get('cart');
         $totalPrice = 0;
 
-        $cart = $cart ?? []; 
-        
+        $cart = $cart ?? [];
+
         foreach ($cart as $item) {
             $totalPrice += $item['price'] * $item['quantity'];
         }
@@ -52,15 +52,15 @@ class OrderController extends Controller
                     'quantity' => $details['quantity'],
                 ]);
             }
-
-            // After creating the order, ensure it has the associated orderDetails
-            $order = Order::with('orderDetails')->findOrFail($order->id);
         }
-
         // Forget the cart from the session
         session()->forget('cart');
 
+        // After creating the order, ensure it has the associated orderDetails
+        $order = Order::with(['orderDetails', 'payment'])->findOrFail($order->id);
+
         // Return success view
-        return view('customers.ordersuccess', compact('order'))->with('success', 'Order placed successfully');
+        // return view('customers.ordersuccess', compact('order'))->with('success', 'Order placed successfully');
+        return view('customers.payment', compact('order'));
     }
 }

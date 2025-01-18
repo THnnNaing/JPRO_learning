@@ -17,10 +17,10 @@
                     <label for="end_date">End Date:</label>
                     <input type="date" id="end_date" name="end_date" required>
 
-                    <input type="text" 
+                    {{-- <input type="text" 
                             name="search" 
                             placeholder="Search Order Info:" 
-                            value="{{request()->input('search') ? request()->input('search') : ''}}">
+                            value="{{request()->input('search') ? request()->input('search') : ''}}"> --}}
 
                     <button class="btn btn-success btn-sm" type="submit">Search</button>
                 </form>
@@ -35,6 +35,7 @@
                         <th>Total</th>
                         <th>Date</th>
                         <th>Delivery Address</th>
+                        <th>Payment Method</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -54,7 +55,15 @@
                             <td>{{ $order->order_date }}</td>
                             <td>{{ $order->delivery_address }}</td>
                             <td>
-                                {{-- <form action="{{ route('orders.updateStatus', $order->id) }}" method="POST">
+                                @if ($order->payment)
+                                    {{ $order->payment->payment_method }}
+                                @else
+                                    <span class="text-muted">No Payment</span>
+                                @endif
+                            </td>
+                            
+                            <td>
+                                <form action="{{ route('orders.updateStatus', $order->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <select name="status" id="status">
@@ -68,7 +77,7 @@
                                             Cancelled</option>
                                     </select>
                                     <button type="submit" class="btn btn-info btn-sm">Update Status</button>
-                                </form> --}}
+                                </form>
                             </td>
                             <td>
                                 <a class="btn btn-info btn-sm" href="{{ route('orders.show', $order->id) }}">

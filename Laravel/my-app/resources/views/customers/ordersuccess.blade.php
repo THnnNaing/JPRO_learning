@@ -67,6 +67,11 @@
                             </tr>
 
                             <tr>
+                                <td><strong>Payment Method</strong> </td>
+                                <td> {{ $order->payment->payment_method }} </td>
+                            </tr>
+
+                            <tr>
                                 <td><strong>Items</strong> </td>
                                 <td>
                                     <ul>

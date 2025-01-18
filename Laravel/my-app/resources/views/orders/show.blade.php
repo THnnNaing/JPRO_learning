@@ -24,12 +24,16 @@ fa-arrow-left"></i>
                         <td> {{ $order->order_date }} </td>
                     </tr>
                     <tr>
-                        <td><strong>Delivery <Address></Address></strong> </td>
+                        <td><strong> <Address>Delivery</Address></strong> </td>
                         <td> {{ $order->delivery_address }} </td>
                     </tr>
                     <tr>
-                        <td><strong>Delivery <Address></Address></strong> </td>
+                        <td><strong>Status</strong> </td>
                         <td> {{ $order->status }} </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Payment Method</strong> </td>
+                        <td> {{ $order->payment->payment_method }} </td>
                     </tr>
                     <tr>
                         <td><strong>Items</strong> </td>

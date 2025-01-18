@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminViewReviewController;
 use App\Http\Controllers\AdminCustomerController;
 use App\Http\Controllers\AdminOrderController;
+use App\Http\Controllers\AdminViewSaleController;
 
 // For Customer Module
 use App\Http\Controllers\Customer\HomeController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\Customer\RegisterController;
 use App\Http\Controllers\Customer\ReviewController;
 use App\Http\Controllers\Customer\FoodController;
 use App\Http\Controllers\Customer\OrderController;
+use App\Http\Controllers\Customer\PaymentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,8 +45,10 @@ Route::get('viewreview', [AdminViewReviewController::class,'index'])->name('view
 Route::get('/viewreview_search', [AdminViewReviewController::class,'search'])->name('viewreview.search');
 
 Route::resource('orders', AdminOrderController::class);
-// Route::get('vieworder', [AdminOrderController::class, 'index'])->name('vieworder');
-Route::get('order_search', [AdminOrderController::class, 'search'])->name('orders.search');
+Route::get('/order_search', [AdminOrderController::class, 'search'])->name('orders.search');
+Route::put('/order/{id}/status', [AdminOrderController::class, 'updateStatus'])->name('orders.updateStatus');
+
+Route::get('viewsale', [AdminViewSaleController::class, 'index'])->name('viewsale');
 
 
 
@@ -70,7 +74,7 @@ Route::delete('remove-from-cart', [FoodController::class,'remove'])->name('remov
 Route::get('order', [OrderController::class, 'index'])->name('order');
 Route::post('order', [OrderController::class, 'store'])->name('order.store');
 
-
+Route::post('/payment',[PaymentController::class, 'store'])->name('payment.store');
 
 
 

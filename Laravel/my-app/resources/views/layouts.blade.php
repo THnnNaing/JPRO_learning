@@ -46,6 +46,8 @@ href="{{ route('login') }}">Login</a>
                     <a class="nav-link" href="{{ route('viewreview') }}">Review</a>
                     <!-- for order -->
                     <a class="nav-link" href="{{ route('orders.index') }}">Order</a>
+                    <!-- for sale result -->
+                    <a class="nav-link" href="{{ route('viewsale') }}">Sale Result</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
